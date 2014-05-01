@@ -1,0 +1,47 @@
+
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!-- Refer http://bootsnipp.com/snippets/featured/input-validation-colorful-input-groups for styling-->
+    
+    <div class="row">
+        <div class="col-sm-offset-4 col-sm-4">
+            <%= form_for(@project) do |f| %>
+			
+							<div class="form-group">
+								<%= f.label :name %>
+								<div class="input-group">
+									<%= f.text_field :name , class: "form-control", required: true %>
+									<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<%= f.label :vendor %>
+								<div class="input-group">
+									<%= f.text_field :vendor , class: "form-control", required: true %>
+									<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<%= f.label :client %>
+								<div class="input-group">
+									<%= f.text_field :client , class: "form-control", required: true %>
+									<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+								</div>
+							</div>
+							
+							<%= f.submit class: "btn btn-default"%>
+				
+            <% end %>
+        </div>
+    </div>

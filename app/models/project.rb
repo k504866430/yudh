@@ -1,5 +1,6 @@
 class Project
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :name                 , type: String
   field :region_primary       , type: String
   field :vendor               , type: String

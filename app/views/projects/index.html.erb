@@ -1,0 +1,39 @@
+<!-- Refer http://bootsnipp.com/snippets/featured/responsive-list-groups-for-ratings for styling-->
+
+<div class="row">
+	<div class="well">
+		<h1 class="text-center">Listing projects</h1>
+		<div class="list-group">
+		<% @projects.each_with_index do |project, index| %>
+			<a href="#" class="list-group-item <%= index%2==0 ? 'active' : ''%>">
+			    <div class="media col-md-3">
+			        <figure class="pull-left">
+			            <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+			        </figure>
+			    </div>
+			    <div class="col-md-6">
+			        <h4 class="list-group-item-heading"> <%= project.name %></h4>
+			        <p class="list-group-item-text"> Qui diam libris ei, vidisse incorrupte at mel. His euismod salutandi dissentiunt eu. Habeo offendit ea mea. Nostro blandit sea ea, viris timeam molestiae an has. At nisl platonem eum. 
+			            Vel et nonumy gubergren, ad has tota facilis probatus. Ea legere legimus tibique cum, sale tantas vim ea, eu vivendo expetendis vim. Voluptua vituperatoribus et mel, ius no elitr deserunt mediocrem. Mea facilisi torquatos ad.
+			        </p>
+			    </div>
+			    <div class="col-md-3 text-center">
+			        <h2> 14240 <small> points </small></h2>
+					<%= button_to "See Details", project_path(project), :method => "get", :class => "btn btn-default btn-lg btn-block" %>
+
+			        <div class="stars">
+			            <span class="glyphicon glyphicon-star"></span>
+			            <span class="glyphicon glyphicon-star"></span>
+			            <span class="glyphicon glyphicon-star"></span>
+			            <span class="glyphicon glyphicon-star"></span>
+			            <span class="glyphicon glyphicon-star-empty"></span>
+			        </div>
+			        <p> Rank 1 <small> / </small> <%= @projects.size %> </p>
+			    </div>
+			</a>
+		<% end %>
+		</div>
+	</div>
+</div>
+
+<%= link_to 'New Project', new_project_path %>
